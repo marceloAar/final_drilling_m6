@@ -1,0 +1,15 @@
+# Archivos temporales y de caché de Django
+__pycache__/
+local_settings.py
+
+# Archivos de migración
+*/migrations/*.py
+!*/migrations/__init__.py
+
+# Django
+db.sqlite3
+media/
+staticfiles/
+
+# Entornos virtuales
+proyecto_vehiculos_django/

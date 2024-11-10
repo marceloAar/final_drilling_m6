@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'vehiculo:vehiculo_index' %}">Vehículos</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'vehiculo:vehiculo_index' %}">
+                Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'vehiculo:add_vehiculo' %}">Agregar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'vehiculo:list_vehiculos' %}">Listar</a>
+          </li>
+        </ul>        
+        
+        <ul class="navbar-nav ms-auto">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Salir</a>
+            </li>
+            <li class="nav-item">
+                <span class="nav-link disabled">Hola, {{ user.username }}</span>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+
+      </div>
+    </div>
+</nav>

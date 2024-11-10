@@ -1,0 +1,47 @@
+{% extends 'vehiculo/base.html' %}
+
+{% block title %}Vehiculos{% endblock %}
+
+{% block content %}
+
+<h3>Listado de Vehículos</h3>
+
+<!-- Mostrar el botón "Agregar" solo si el usuario tiene el permiso 
+{% if puede_agregar %}
+<a href="{% url 'vehiculo:add_vehiculo' %}">Agregar Vehículo</a>
+{% endif %}-->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Serial Carroceria</th>
+            <th>Serial Motor</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Condición de Precio</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+    {% for vehiculo in vehiculos %}
+    <tr>
+        <td>{{ vehiculo.marca }}</td>
+        <td>{{ vehiculo.modelo }}</td>
+        <td>{{ vehiculo.serial_carroceria }}</td>
+        <td>{{ vehiculo.serial_motor }}</td>
+        <td>{{ vehiculo.categoria }}</td>
+        <td>{{ vehiculo.precio }}</td>
+        {% if vehiculo.precio < 10000 %} <td>Bajo</td>
+            {% elif vehiculo.precio >= 10000 and vehiculo.precio <= 30000 %} <td>Medio</td>
+                {% else %}
+                <td>Alto</td>
+                {% endif %}
+
+    </tr>
+    {% endfor %}
+    </tbody>
+    
+</table>
+
+{% endblock %}

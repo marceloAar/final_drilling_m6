@@ -1,0 +1,12 @@
+superuser
+user: admin
+pass: admin
+
+usuario agrega y lista vehiculos
+user: usuarioprueba
+pass: admin12345
+
+usuario solo lista los vehiculos
+user: usuarioprueba2
+pass: admin12345
+
